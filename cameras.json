@@ -1,0 +1,44 @@
+[
+    {
+        "key": "aud1",
+        "name": "Auditorium 1",
+        "presets": [
+            { "name": "Main", "preset": 2 },
+            { "name": "Reader", "preset": 5 },
+            { "name": "Sisters", "preset": 1 },
+            { "name": "Demo Left", "preset": 3 },
+            { "name": "Demo Right", "preset": 4 },
+            { "name": "Stage", "preset": 3 },
+            { "name": "Overlay", "preset": 6 }
+        ],
+        "options": {
+            "host": "10.2.2.76",
+            "port": "80",
+            "user": "admin",
+            "pass": "admin",
+            "log": false,
+            "cameraAlarms": false
+        }
+    },
+    {
+        "key": "aud2",
+        "name": "Auditorium 2",
+        "presets": [
+            { "name": "Main", "preset": 1 },
+            { "name": "Reader", "preset": 7 },
+            { "name": "Sisters", "preset": 2 },
+            { "name": "Demo Left", "preset": 3 },
+            { "name": "Demo Right", "preset": 4 },
+            { "name": "Stage", "preset": 5 },
+            { "name": "Overlay", "preset": 6 }
+        ],
+        "options": {
+            "host": "10.2.2.75",
+            "port": "80",
+            "user": "vmix",
+            "pass": "admin",
+            "log": false,
+            "cameraAlarms": false
+        }
+    }
+]
