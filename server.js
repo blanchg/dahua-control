@@ -8,6 +8,8 @@ const io = require('socket.io')(http);
 let port = 80
 let refresh = 5000
 
+let development = !process.argv[0].includes("server");
+
 if (process.argv.length > 2) {
     port = parseInt(process.argv[2])
 }
@@ -22,8 +24,13 @@ try {
 } catch (e) {
     console.log(e);
 }
-// const Bundler = require('parcel-bundler');
-// let bundler = new Bundler('index.html');
+console.log(process.argv);
+let bundler = undefined;
+if (development) {
+    let parcel = 'parcel' + '-' + 'bundler';
+    const Bundler = require(parcel);
+    bundler = new Bundler('index.html');
+}
 try {
     const cameradict = {};
     cameras.forEach(camera => {
@@ -126,7 +133,9 @@ try {
         console.log('api')
         throw new Error('oops')
     })
-    // app.use(bundler.middleware())
+    if (bundler) {
+        app.use(bundler.middleware())
+    }
     app.use(express.static(path.join(__dirname, 'dist')))
     app.use('/*', (req, res) => res.send(path.join(__dirname, 'dist/index.html')))
 
