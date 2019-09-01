@@ -15,31 +15,7 @@ if (process.argv.length > 3) {
     refresh = parseInt(process.argv[3])
 }
 
-let cameras = [
-    { key: 'aud1', name: 'Auditorium 1', presets: [
-        { name: 'Main', preset: 1 }
-    ], options: {
-        host: '10.2.0.77',
-        port: '80',
-        user: 'admin',
-        password: 'admin',
-        log: false,
-        cameraAlarms: false
-    }},
-    { key: 'aud2', name: 'Auditorium 2', presets: [
-        { name: 'Main', preset: 1 },
-        { name: 'Demo', preset: 2 },
-        { name: 'Reader', preset: 3 },
-        { name: 'Platform', preset: 4 }
-    ], options: {
-        host: '10.2.0.78',
-        port: '80',
-        user: 'admin',
-        password: 'admin',
-        log: false,
-        cameraAlarms: false
-    }},
-]
+let cameras = []
 try {
     let config = fs.readFileSync(path.join(process.cwd(), 'cameras.json'))
     cameras = JSON.parse(config);
